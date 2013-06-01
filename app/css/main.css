@@ -1,0 +1,54 @@
+html {
+  background-color: #eee;
+}
+
+html.YES {
+  background-color: #f00;
+}
+
+body {
+  width: 27em;
+  margin: 3em auto;
+  padding: 3em;
+  padding-top: 0.1em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  background-color: #fff;
+  line-height: 1.4em;
+}
+
+h1 {
+  margin: 1em 0;
+  font-size: 6em;
+  text-align: center;
+}
+
+h3 {
+  margin: 1em 0;
+}
+
+a {
+  color: #369;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+div#summary {
+  padding: 0.5em 1em;
+  border: solid 1px #333;
+}
+
+p#details {
+  padding: 0;
+}
+
+p#credits {
+  margin-top: 2em;
+  color: #666;
+  font-size: 0.9em;
+  text-align: center;
+}
