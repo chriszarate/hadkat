@@ -1,6 +1,6 @@
 /*
  * hasadronekilledanyonetoday.com
- * https://github.com/chriszarate/hasadronekilledanyonetoday
+ * https://github.com/chriszarate/hadkat
  * Released under the WTFPL (Do What the Fuck You Want to Public License)
  */
 
