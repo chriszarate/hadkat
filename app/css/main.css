@@ -24,7 +24,7 @@ h1 {
 }
 
 h3 {
-  margin: 1em 0;
+  margin: 0.75em 0;
 }
 
 a {
@@ -37,14 +37,28 @@ a:hover {
   text-decoration: underline;
 }
 
+pre {
+  color: #630;
+  font-size: 0.9em;
+  line-height: 1.2em;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  word-wrap: break-word;
+}
+
 div#summary {
   padding: 0.5em 1em;
   border: solid 1px #333;
 }
 
-p#details {
-  padding: 0;
+div#embed {
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  background-color: #ffe;
+  border: solid 1px #bba;
 }
+
 
 p#credits {
   margin-top: 2em;
