@@ -4,11 +4,9 @@
  * Released under the WTFPL (Do What the Fuck You Want to Public License)
  */
 
-// Require HTTP.
+// Dependencies
 var http = require('http'),
-
-// Require file system.
-fs = require('fs'),
+    fs = require('fs'),
 
 // Options for HTTP request.
 options = {
@@ -52,7 +50,7 @@ getData = function (res) {
 
 },
 
-// Parse response to extract latest strike.
+// Parse response to extract details of latest strike.
 parseData = function (data) {
 
   // Parse data as JSON.
@@ -62,10 +60,44 @@ parseData = function (data) {
   if(obj.status == 'OK') {
 
     // Get last strike.
-    var strike = obj.strike.pop();
+    var strike = obj.strike.pop(),
+        then = Date.parse(strike.date),
+        now = new Date().getTime(),
+        hours = (now - then) / 1000 / 60 / 60,
+        days = Math.round(hours / 24),
+        ISIT = (hours < 24),
+        deaths = '',
+        injuries = '',
+        time = '',
+        strikeData = {};
+
+    if(strike.deaths) {
+      deaths = ' killed ' + strike.deaths;
+      deaths += (strike.deaths !== '1') ? ' people' : ' person';
+    }
+
+    if(strike.injuries) {
+      injuries = ' injured ' + strike.injuries;
+      injuries += (strike.injuries !== '1') ? ' people' : ' person';
+    }
+
+    if(deaths && injuries) {
+      deaths += ' and';
+    }
+
+    if(days > 1) {
+      time = ' ' + days + ' days ago';
+    } else {
+      time = ' ' + hours + ' hours ago';
+    }
+
+    strikeData.ISIT = ISIT;
+    strikeData.answer = (ISIT) ? 'YES' : 'NO';
+    strikeData.headline = 'A U.S. drone' + deaths + injuries + time + '.';
+    strikeData.details = strike.bij_summary_short;
 
     // Write record to file.
-    fs.writeFile(outputLatest, JSON.stringify(strike));
+    fs.writeFile(outputLatest, JSON.stringify(strikeData));
 
   }
 

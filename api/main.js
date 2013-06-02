@@ -4,11 +4,9 @@
  * Released under the WTFPL (Do What the Fuck You Want to Public License)
  */
 
-// Require Express.
+// Dependencies
 var express = require('express'),
-
-// Require file system.
-fs = require('fs'),
+    fs = require('fs'),
 
 // File name of data.
 strikeData = 'data/strike.json',
